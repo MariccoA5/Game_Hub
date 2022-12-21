@@ -5,18 +5,21 @@ A place to play free games.
 
 ## API's:
 
-Deck of cards: https://deckofcardsapi.com/ (used to make a simple card game) <br>
-Quote Api: https://api-ninjas.com/api/quotes (used for home page vibe)
+Quotes: https://zenquotes.io/ <br>
+Game data api: https://api-docs.igdb.com/
 
 
 ## Features:
 
-### [ CRUD#1 / User Auth / API#1 / ] 
+### [ CRUD#1 / User Auth ] 
  - Login
-    - On login screen, nice quote of the day to get the gears turning.
   - Logout
-  - Create an Account
-    - Profile page
+ - Create an Account
+   - Profile page
+    - with info
+### [ API#1 ] 
+- Quote of the day in the footer.
+
 
 ### [ API#2 ] 
  - Nav bar to go to different games
@@ -24,6 +27,6 @@ Quote Api: https://api-ninjas.com/api/quotes (used for home page vibe)
  - maybe add other games made not by me.
 
 
-### [ CRUD#2 / Models / Database Design ] 
-- User Point System for playing games
- - Earn points by playing games and redeem them for VIP !
+### [ CRUD#2 ] 
+- User Point System for viewing database
+ - redeem them for access to play any created games I made!
