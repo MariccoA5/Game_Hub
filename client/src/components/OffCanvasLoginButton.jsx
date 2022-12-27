@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Button, Image } from "react-bootstrap";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import GamerRoom from "../images/gamerroom.jpg";
-import Form from 'react-bootstrap/Form';
-import gaming from '../images/gaming.avif'
+import Form from "react-bootstrap/Form";
+import gaming from "../images/gaming.avif";
+import tarzan from "../images/art_tarzan.jpeg";
 
-
-export let NavBarLoginButton = () => {
+export let OffCanvasLoginButton = () => {
   // LOGIN NAV BAR
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -20,49 +20,34 @@ export let NavBarLoginButton = () => {
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
   // USER INPUT
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
-
     const data = {
       username: email,
-      password: password
-    }
-    const serializedData = JSON.stringify(data)
+      password: password,
+    };
+    console.log(data);
+    const serializedData = JSON.stringify(data);
     //submit email and password to server
-    fetch('/api/signUp/', {
-      method: 'POST',
+    fetch("/api/signUp/", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: serializedData
-      })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error(error))
+      body: serializedData,
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
     event.preventDefault();
-  }
-
-
-  // Send create account data to backend to be turned into a django model object
-  // const signUp = () => {
-    
-  //   const userEmail = document.getElementByClassName("SignUpEmail").innerText;
-  //   const userPassword = document.getElementByClassName("SignUpPassWord").innerText;
-  //   console.log(userEmail,userPassword);
-
-  // };
-  // const signIn = () => {
-  //   const userEmail = document.getElementByClassName("SignInEmail");
-  //   const userPassWord = document.getElementByClassName("SignInPassWord");
-  //   console.log(".");
-  // };
+  };
 
   return (
     <div>
       {/* LOGIN NAVBAR BUTTON */}
-      <Button variant="light" className="GameHubLogin" onClick={handleShow}>
+      <Button className="GameHubLogin" variant="light" onClick={handleShow}>
         Login
       </Button>
       {/* OFF CANVAS */}
@@ -70,8 +55,6 @@ export let NavBarLoginButton = () => {
         className="offCanvas"
         show={show}
         onHide={handleClose}
-        stroll="false"
-        reponsive="md"
         placement="end"
       >
         <Offcanvas.Header className="LoginCreate">
@@ -94,37 +77,44 @@ export let NavBarLoginButton = () => {
           {/* LOGIN OFFCANVAS */}
           <Offcanvas
             className="offCanvas"
-            show={show2}
+            show={show1}
             onHide={handleClose1}
-            stroll="false"
-            reponsive="md"
             placement="end"
           >
             <Offcanvas.Header>
-              <Offcanvas.Title className="LoginSignUp">GameHub</Offcanvas.Title>
+              <Offcanvas.Title className="LoginSignUp">Welcome back! </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Image src={gaming} width="330" length="250" />
-              <Form onSubmit={handleSubmit} >
+            <Image width="365px" height="300px" src={gaming} />
+              <Form onSubmit={handleSubmit}>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlInput2"
                 >
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="name@example.com" value={email} onChange={event => setEmail(event.target.value)} />
+                  <Form.Control
+                    type="email"
+                    placeholder="name@example.com"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
                 </Form.Group>
-                <Form.Label variant="light" htmlFor="inputPassword5">Password</Form.Label>
+                <Form.Label variant="light" htmlFor="inputPassword5">
+                  Password
+                </Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder='password'
+                  placeholder="password"
                   id="inputPassword5"
                   aria-describedby="passwordHelpBlock"
-                  onChange={event => setPassword(event.target.value)} 
+                  onChange={(event) => setPassword(event.target.value)}
                 />
-                <Button className="GameHubSignUp2" type='submit'>Sign In</Button>
+                <Button className="GameHubSignUp2" type="submit">
+                  Sign In
+                </Button>
               </Form>
             </Offcanvas.Body>
-      </Offcanvas>
+          </Offcanvas>
           {/* SIGN UP */}
           <Button
             variant="secondary"
@@ -138,31 +128,39 @@ export let NavBarLoginButton = () => {
             className="offCanvas"
             show={show2}
             onHide={handleClose2}
-            stroll="false"
-            reponsive="md"
             placement="end"
           >
             <Offcanvas.Header>
-              <Offcanvas.Title className="LoginSignUp">GameHub</Offcanvas.Title>
+              <Offcanvas.Title className="LoginSignUp">Create An Account</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Form onSubmit={handleSubmit} >
+            <Image width="365px" height="300px" src={tarzan} />
+              <Form onSubmit={handleSubmit}>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlInput1"
                 >
                   <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="name@example.com" value={email} onChange={event => setEmail(event.target.value)} />
+                  <Form.Control
+                    type="email"
+                    placeholder="name@example.com"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
                 </Form.Group>
-                <Form.Label variant="light" htmlFor="inputPassword5">Password</Form.Label>
+                <Form.Label variant="light" htmlFor="inputPassword7">
+                  Password
+                </Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder='password'
+                  placeholder="password"
                   id="inputPassword7"
                   aria-describedby="passwordHelpBlock"
-                  onChange={event => setPassword(event.target.value)} 
+                  onChange={(event) => setPassword(event.target.value)}
                 />
-                <Button className="GameHubSignUp2" type='submit'>Create Account</Button>
+                <Button className="GameHubSignUp2" type="submit">
+                  Create Account
+                </Button>
               </Form>
             </Offcanvas.Body>
           </Offcanvas>
