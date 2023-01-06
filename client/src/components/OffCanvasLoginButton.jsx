@@ -23,7 +23,7 @@ export let OffCanvasLoginButton = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmitSU = () => {
     const data = {
       username: email,
       password: password,
@@ -42,6 +42,22 @@ export let OffCanvasLoginButton = () => {
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
     event.preventDefault();
+  };
+  
+  const handleSubmitLN = () => {
+    const data = {
+      username: email,
+      password: password,
+    };
+    //submit email and password to server
+    fetch("/api/login/", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+  })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -86,7 +102,7 @@ export let OffCanvasLoginButton = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
             <Image width="365px" height="300px" src={gaming} />
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmitLN}>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlInput2"
@@ -135,7 +151,7 @@ export let OffCanvasLoginButton = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
             <Image width="365px" height="300px" src={tarzan} />
-              <Form onSubmit={handleSubmit}>
+              <Form onSubmit={handleSubmitSU}>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlInput1"

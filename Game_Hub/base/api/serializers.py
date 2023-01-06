@@ -1,13 +1,17 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.validators import UniqueValidator
-from django.contrib.auth.password_validation import validate_password
+from ..models import User, Game
+
+
+class GameSerializer(serializers.ModelSerializer):
+   
+  class Meta:
+    model = Game
+    fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
+  
   class Meta:
     model = User
-    fields = ["email"]
+    fields = '__all__'
     
     

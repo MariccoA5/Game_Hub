@@ -1,23 +1,29 @@
 import { React } from "react";
-import { Link, NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
+import indent from "../images/indent.png";
 import Image from "react-bootstrap/Image";
-import Indent from "../images/indent.png";
 
 import { OffCanvasLoginButton } from "./OffCanvasLoginButton";
+// import { ProSidebarProvider } from 'react-pro-sidebar';
 
+export const NavBar = ( {toggleShow} ) => {
 
-export const NavBar = () => {
-    
-
+  const gameImage = () => {
+    console.log('here i am')
+  }
 
   return (
     <Navbar variant="dark" expand="lg" sticky="top" className="NavBar">
-      <Image src={Indent} className="GameHubIndent"></Image>
+
+      <div onClick={toggleShow}><Image src={indent} alt="no pic"  className="GameHubIndent" /></div>
+
       <Navbar.Brand className="GameHubLogo" href="#/home/">
-        <Link className="linkfix" to="/">&#127918; GameHub</Link>
+        <Link className="linkfix" to="/">
+          &#127918; GameHub
+        </Link>
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
