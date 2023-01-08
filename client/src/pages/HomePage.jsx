@@ -11,33 +11,33 @@ export const HomePage = ( {data} ) => {
       <h5 className="Title"> Home Page </h5>
       <p className="homeListName"> Check out some of the hottest newest games under the sun. &#9728;&#65039; </p>
         <div className="gameList">
-          {data ? data.map((e) => {
+          {data ? data.slice(0,49).map((e) => {
 
             return (
               
                 <Link to={`/game-detail/${e.id}`}>
-                  <Image className="smallImage" src={e.background_image} />
+                  <Image className="smallImage" src={e.thumbnail} />
                 </Link>
               
             );
           }) : null }
         </div>
         <footer>
-          <Container>
-            <Row>
+          <Container className="footer">
+            <Row className="footerrows">
               <Col>
-              <p>im here1</p>
+              <h5>Maricco Allen</h5>
               </Col>
               <Col>
-              <p>im here2</p>
+                <p>LinkedIn</p>
               </Col>
             </Row>
             <Row>
               <Col>
-              <p>im here3</p>
+              <p>MariccoA5@gmail.com</p>
               </Col>
               <Col>
-              <p>im her4</p>
+              <p>Resume</p>
               </Col>
             </Row>
           </Container>

@@ -3,35 +3,38 @@ import { Link } from 'react-router-dom'
 
 
 
-export const SideBar = ( {genre} ) => {
+export const SideBar = ( {genres} ) => {
 
-  
+  const randomint = () => {
+    Math.floor(Math.random() * 371);
+  }
 
 
   return (
-    <div>
-      <div className='SideBarDiv'>
+      <div className='homeContainer'>
         <ul className="list-group0 list-group-flush">
-          <li className="list-group-item">  Home</li>
-          <li className="list-group-item">  Updated</li>
-          <li className="list-group-item">  New</li>
-          <li className="list-group-item">  Trending</li>
-          <li className="list-group-item">  Random</li>
+          <li><Link className="list-group-item0" to={`/`}>Home</Link></li>
+          <li><Link className="list-group-item0" to={`/profile`}>Profile</Link></li>
+          <li><Link className="list-group-item0" to={`/melo`}>Maricco's Created Games</Link></li>
+          <li><Link className="list-group-item0" to={`/genre/Trending`}>Trending</Link></li>
+          <li><Link className="list-group-item0" to={`/game/${randomint}`}>Random</Link></li>
         </ul>
-      </div>
-      <div className="genreList">
-        <ul>
-          {genre ? genre.map((e) => {
-            // <Link to={`/genre/${e.name}`}>{e.name}</Link>
-            // key={e.id}
+      
+      
+
+        <ul className="list-group1 list-group-flush"> 
+          {genres ? genres.map((e) => {
             return (
-              
-                  <li className="list-group-item" > {e.name} </li>
+             
+              <Link className="list-group-item1" to={`/genre/${e.name}`}>{e.name}<br></br><br></br></Link>
               
             );
           }) : null }
         </ul>
+
+      
+
       </div>
-    </div>
   )
 }
+ 

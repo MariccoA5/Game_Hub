@@ -18,6 +18,9 @@
 :root {
   background-color: rgb(12,13,20);
   color: rgb(255, 255, 255);
+  min-height: 100vh; 
+  max-width: auto;
+  margin: 0 auto;
 }
 
 .GameHubLogo {
@@ -247,6 +250,7 @@
 .gameList {
   padding-top: 10px;
   margin-left: 15px;
+  margin-right: 3px;
   margin-bottom: 1px;
 }
 
@@ -300,14 +304,15 @@
 .sideBarContainer {
   display: flex;
   background-color: rgb(12,13,20);
-}
-.SideBarDiv {
-  width: 240px;
-  background-color: rgb(12,13,20);
   border-width: 1px;
   border-right-style: solid;
   border-color: rgb(195, 195, 195);
-
+  
+}
+.homeContainer {
+  width: 240px;
+  background-color: rgb(12,13,20);
+  overflow-y:auto
 }
 .list-group0 {
   padding-top: 7px;
@@ -315,30 +320,53 @@
   border-width: 1px;
   border-color: rgb(195, 195, 195);
 }
-
-.list-group-item {
-  font-family: MyFont2;
-  background-color: rgb(12,13,20);
-  color:rgb(195, 195, 195);
-  padding-top: 4px;
+.list-group1 {
+  padding-top: 7px;
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: rgb(195, 195, 195);
 }
-.list-group-item:hover {
+
+.list-group-item0 {
+  color:rgb(235, 235, 235);
   font-family: MyFont2;
-  background-color: rgb(12,13,20);
+  padding-top: 4px;
+  cursor: pointer;
+}
+.list-group-item0:hover {
   color:white;
   padding-top: 4px;
   padding-left: 8px;
+}
+.list-group-item0:active {
+  color: rgb(164,142,255);
+
+}
+.list-group-item0:focus {
+  color: rgb(164,142,255);
+
+}
+.list-group-item1 {
+  padding-bottom: 10px;
+  color: rgb(235, 235, 235);
+  font-family: MyFont2;
+  padding-top: 4px;
   cursor: pointer;
-  
 }
-.list-group-item:active {
+.list-group-item1:hover {
+  color:white;
+  padding-top: 4px;
+  padding-left: 8px;
+}
+.list-group-item1:active {
   color: rgb(164,142,255);
-
 }
-.list-group-item:focus {
+.list-group-item1:focus {
   color: rgb(164,142,255);
-
 }
+
+
+
 
 ol, ul {
   padding-left: 1rem !important;
@@ -347,4 +375,16 @@ ol, ul {
 .GameDetailPage {
   color: white;
 }
-
+.sideBarContainer a {
+  text-decoration: none !important;
+  color: rgb(182, 182, 182);
+}
+.footer {
+  font-family: MyFont2;
+  border-top-style: groove;
+  border-color: rgb(156, 156, 156);
+  margin-top: 10px;
+}
+.footerrows {
+  margin-top: 10px;
+}
