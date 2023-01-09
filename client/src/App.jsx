@@ -5,6 +5,7 @@ import { PrivateRoutes } from "./utils/PrivateRoute";
 // import { AuthProvider } from "./context/AuthContext";
 
 import { HomePage } from "./pages/HomePage";
+import { GenrePage } from "./pages/GenrePage";
 import { SavedGames } from "./pages/SavedGames";
 import { NavBar } from "./components/NavBar";
 import { SideBar } from "./components/SideBar";
@@ -49,7 +50,7 @@ function App() {
     const options = {
       method: "GET",
       url: "https://api.rawg.io/api/genres?key=870f7f5a45ba4878b47e5a3d23b5c6d5",
-      params: { page_size: 36, page: 1 },
+      params: { page_size: 15, page: 1 },
     };
 
     axios
@@ -74,6 +75,7 @@ function App() {
             <Route path="/" element={<HomePage data={data} />} />
             <Route path="/saved-games" element={<SavedGames />} />
             <Route path="/game-detail/:gameID" element={<GameDetailPage />} />
+            <Route path="/genre/:genre" element={<GenrePage />} />
           </Routes>
         
       </div>

@@ -11,7 +11,7 @@ export const HomePage = ( {data} ) => {
       <h5 className="Title"> Home Page </h5>
       <p className="homeListName"> Check out some of the hottest newest games under the sun. &#9728;&#65039; </p>
         <div className="gameList">
-          {data ? data.slice(0,49).map((e) => {
+          {data ? data.slice(0,63).map((e) => {
 
             return (
               
