@@ -6,8 +6,10 @@ import { Link } from 'react-router-dom'
 export const SideBar = ( {genres} ) => {
 
   const randomint = () => {
-    Math.floor(Math.random() * 371);
-  }
+    
+    return Math.floor(Math.random() * 371);
+
+  };
 
 
   return (
@@ -17,7 +19,7 @@ export const SideBar = ( {genres} ) => {
           <li><Link className="list-group-item0" to={`/profile`}>Profile</Link></li>
           <li><Link className="list-group-item0" to={`/melo`}>Maricco's Created Games</Link></li>
           <li><Link className="list-group-item0" to={`/genre/Trending`}>Trending</Link></li>
-          <li><Link className="list-group-item0" to={`/game/${randomint}`}>Random</Link></li>
+          <li><Link className="list-group-item0" to={`/game/${randomint()}`}>Random</Link></li>
         </ul>
       
       

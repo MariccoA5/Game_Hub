@@ -256,17 +256,28 @@
 
 
 
-.bigImage {
-  border-radius: 15px;
+.BigImage {
+
+  border-radius: 13px;
   width: 370px;
   height: 220px;
-  margin-left: 12px;
+  margin: 20px 15px;
 }
-.bigImage:hover {
+.BigImage:hover {
   transform: scale(1.01);
-  z-index: 1;
 }
+.GameDetails {
+  margin-top: 20px;
 
+  color: whitesmoke;
+  font-family: MyFont2;
+  font-size: 15px;
+}
+.GameDescription{
+  box-shadow: #999;
+  background-color: rgb(12,13,20);
+  color: aliceblue;
+}
 .smallImage {
 
   margin-left: 10px;
