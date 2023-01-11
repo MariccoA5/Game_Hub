@@ -22,10 +22,13 @@ function App() {
   
 
   useEffect(() => {
-    gameDataCollect();
     gameGenreCollect();
+    gameDataCollect();
+    whoAmI();
+
   }, []);
 
+  
   const gameDataCollect = () => {
     const options = {
       method: "GET",
@@ -39,13 +42,18 @@ function App() {
     axios
       .request(options)
       .then(function (response) {
-        console.log(response.data);
+        // console.log(response.data);
         setData(response.data);
       })
       .catch(function (error) {
         console.error(error);
       });
   };
+  const whoAmI = () => {
+    axios.get('api/curr-user/').then(function (response) {
+      console.log(response.data);
+    })
+  }
   const gameGenreCollect = () => {
     const options = {
       method: "GET",

@@ -7,7 +7,7 @@ export default defineConfig({
   base: '/static/',
   build: {
     // where vite puts the bundled application
-    outDir: '../Game_Hub/base/static',
+    outDir: '../server/base/static',
 
     // delete old build when creating new
     emptyOutDir: true,

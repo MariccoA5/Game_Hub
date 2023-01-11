@@ -11,9 +11,6 @@ import { OffCanvasLoginButton } from "./OffCanvasLoginButton";
 
 export const NavBar = ( {toggleShow} ) => {
 
-  const gameImage = () => {
-    console.log('here i am')
-  }
 
   return (
     <Navbar variant="dark" expand="lg" sticky="top" className="NavBar">

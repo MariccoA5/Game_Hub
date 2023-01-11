@@ -5,6 +5,7 @@ import GamerRoom from "../images/gamerroom.jpg";
 import Form from "react-bootstrap/Form";
 import gaming from "../images/gaming.avif";
 import tarzan from "../images/art_tarzan.jpeg";
+import axios from "axios";
 
 export let OffCanvasLoginButton = () => {
   // LOGIN NAV BAR
@@ -23,12 +24,18 @@ export let OffCanvasLoginButton = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmitSU = () => {
+  const whoAmI = () => {
+    axios.get('api/curr-user/').then(function (response) {
+      console.log(response);
+    })
+  }
+
+  const handleSubmitSU = (event) => {
+    
     const data = {
       username: email,
       password: password,
     };
-    console.log(data);
     const serializedData = JSON.stringify(data);
     //submit email and password to server
     fetch("/api/signUp/", {
@@ -41,23 +48,31 @@ export let OffCanvasLoginButton = () => {
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
-    event.preventDefault();
   };
   
-  const handleSubmitLN = () => {
+  const handleSubmitLN = async (event) => {
+    
     const data = {
       username: email,
       password: password,
     };
+    const serializedData = JSON.stringify(data);
     //submit email and password to server
+    console.log(data);
     fetch("/api/login/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+      body: serializedData,
   })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        whoAmI();
+
+      })
+      
       .catch((error) => console.error(error));
+    
   };
 
   return (
@@ -102,7 +117,7 @@ export let OffCanvasLoginButton = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
             <Image width="365px" height="300px" src={gaming} />
-              <Form onSubmit={handleSubmitLN}>
+              <Form onSubmit={(event) => handleSubmitLN(event)}>
                 <Form.Group
                   className="mb-3"
                   controlId="exampleForm.ControlInput2"
