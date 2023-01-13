@@ -1,32 +1,16 @@
 # Game-Hub
-A place to play free games.
+A place to browse currently free games.
 
 
 
-## API's:
+## Third Party API's:
+Game data: https://www.freetogame.com/api/games
+TBA api: 
 
-Quotes: https://zenquotes.io/ <br>
-Game data api: https://api-docs.igdb.com/
+## CRUD Features:
+Add Games in to saved games, for later viewing.
+Edit Profile page.
 
+## Authentication
+Sign in to view your profile.
 
-## Features:
-
-### [ CRUD#1 / User Auth ] 
- - Login
-  - Logout
- - Create an Account
-   - Profile page
-    - with info
-### [ API#1 ] 
-- Quote of the day in the footer.
-
-
-### [ API#2 ] 
- - Nav bar to go to different games
-  - Card Api will be used to make a simple text based card games displayed when nav link clicked
- - maybe add other games made not by me.
-
-
-### [ CRUD#2 ] 
-- User Point System for viewing database
- - redeem them for access to play any created games I made!
